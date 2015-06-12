@@ -1,4 +1,4 @@
-/// <reference path="contract"/>
+/// <reference path="contract.ts"/>
 
 module tutorial {
 
@@ -51,8 +51,8 @@ module tutorial {
         document.getElementById("table").innerHTML = html + "</tbody></table>";
         tableModel.forEach(row => {
             var find = (kind: string) => document.getElementById(row.instrument.id.value + ":" + kind);
-            row.bidElement = find("bid");
-            row.askElement = find("ask");
+            (<any>row).bidElement = find("bid");
+            (<any>row).askElement = find("ask");
         });
     }
 

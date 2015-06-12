@@ -1,0 +1,26 @@
+{
+  "name": "yass",
+  "version": "0.0.1",
+  "author": {
+    "name": "Roman Würsch",
+    "email": "sushicutta@gmail.com",
+    "url": "https://github.com/sushicutta"
+  },
+  "copyright": "2014 Roman Würsch",
+  "description": "TypeScript build für yass",
+  "homepage": "https://github.com/sushicutta/yass",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sushicutta/yass.git"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "typescript": "1.4.1"
+  },
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-open": "^0.3.2",
+    "gulp-tsc-sushicutta": "^0.9.4"
+  }
+}
