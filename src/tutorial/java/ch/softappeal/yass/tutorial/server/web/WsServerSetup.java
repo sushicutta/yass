@@ -18,6 +18,7 @@ public abstract class WsServerSetup extends ServerSetup {
     public static final int PORT = 9090;
     public static final String PATH = "/tutorial";
     public static final String XHR_PATH = "/xhr";
+    public static final String HELLO_PATH = "/hello";
     public static final String WEB_PATH = ".";
 
     public static final Executor DISPATCHER_EXECUTOR = Executors.newCachedThreadPool(new NamedThreadFactory("dispatcherExecutor", Exceptions.STD_ERR));
