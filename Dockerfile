@@ -1,4 +1,11 @@
 FROM java:8
+
+MAINTAINER Roman Würsch
+
 COPY . /usr/src/yass
+
 WORKDIR /usr/src/yass
-RUN start.sh
+
+EXPOSE 9090
+
+CMD ["./start-in-docker.sh"]
