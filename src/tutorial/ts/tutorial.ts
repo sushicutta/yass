@@ -106,7 +106,8 @@ module tutorial {
     }
 
     yass.connect(
-        "ws://localhost:9090/tutorial",
+       // "ws://192.168.59.103:9090/tutorial",
+        "ws://46.101.128.221:9090/tutorial",
         contract.SERIALIZER,
         yass.server( // you can add 0..n interceptors to a service
             new yass.Service(contract.ClientServices.PriceListener, new PriceListenerImpl, serverLogger),

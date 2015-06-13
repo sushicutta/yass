@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker run -p 9090:9090 -it --name docker-test sushicutta/docker-test
+docker run -d -p 9090:9090 --name docker-test sushicutta/docker-test
