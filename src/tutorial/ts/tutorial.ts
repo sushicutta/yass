@@ -106,7 +106,7 @@ module tutorial {
     }
 
     yass.connect(
-        "ws://localhost:9090/tutorial",
+        "ws://192.168.99.100:9090/tutorial",
         contract.SERIALIZER,
         yass.server( // you can add 0..n interceptors to a service
             new yass.Service(contract.ClientServices.PriceListener, new PriceListenerImpl, serverLogger),
@@ -116,7 +116,7 @@ module tutorial {
         () => log("connect failed")
     );
 
-    var proxyFactory = yass.xhr("http://localhost:9090/xhr", contract.SERIALIZER);
+    var proxyFactory = yass.xhr("http://192.168.99.100:9090/xhr", contract.SERIALIZER);
     var echoService = proxyFactory.proxy(contract.ServerServices.EchoService, clientLogger);
     export function echoClick() {
         echoService.echo((<any>document.getElementById("echoInput")).value).then(
