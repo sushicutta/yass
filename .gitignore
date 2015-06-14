@@ -6,3 +6,14 @@
 *.js.map
 /src/tutorial/ts/contract.ts
 .DS_Store
+
+doc/PlayWithDocker.aux
+doc/PlayWithDocker.log
+doc/PlayWithDocker.mtc
+doc/PlayWithDocker.mtc0
+doc/PlayWithDocker.out
+doc/PlayWithDocker.synctex.gz(busy)
+doc/PlayWithDocker.lof
+doc/PlayWithDocker.maf
+doc/PlayWithDocker.toc
+doc/PlayWithDocker.synctex.gz
