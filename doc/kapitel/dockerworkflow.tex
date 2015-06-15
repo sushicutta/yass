@@ -38,6 +38,7 @@ Erklärung der Zeilen:
 \subsection{Bauen via Shellscript}
 
 Um das Image zu bauen habe ich ein Shell-Script gemacht:
+\\
 
 \begin{lstlisting}[
   captionpos=b,
@@ -49,9 +50,13 @@ docker rmi -f sushicutta/docker-test
 docker build -t sushicutta/docker-test .
 \end{lstlisting}
 
+Dieses Shell-Script sucht im aktuellen Verzeichnis ein Dockerfile und baut mit dessen
+Angaben das Image.
+
 Erklärung der Zeilen:
 
 2) Löscht das bestehende Image sushicutta/docker-test aus dem Docker Hafen
+
 3) erstellt das Image neu unter dem selben Namen.
 
 \section{Ship}
@@ -108,4 +113,57 @@ Das Image ist jetzt gebaut worden und im Docker Hafen angekommen, und es trägt 
 sushicutta/docker-test.
 
 Dieses Image kann nun beliebig viele Male gestartet werden.
+
+Um das Image zweimal zu starten, benötigt man folgende Commands:
+\\
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=Image zwei mal starten auf den Ports 9091 und 9092,
+  label=ImageZweimalStarten
+]
+docker run -d -p 9091:9090 --name yass-node-1 sushicutta/docker-test
+docker run -d -p 9092:9090 --name yass-node-2 sushicutta/docker-test
+\end{lstlisting}
+
+Das identische Image läuft jetzt zweimal, der Inhalt ist zu 100\% identisch. Der unterschied
+besteht darin, dass Docker nun die Ports 9091 des Host Betriebsystems auf den Port 9090 des
+ersten Containers mapped und das selbe für den Port 9092 des zweiten Containers.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{./images/twoProcesses.png}
+    \caption{Zwei identische Container auf verschiedenen Ports}
+    \label{img:twoProcesses}
+  \end{center}
+\end{figure}
+
+Was jetzt noch zum trägen kommt, ist der Start Befehl, der im Dockerfile
+konfiguriert wurde. In unserem Beispiel start-in-docker.sh:
+\\
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=Start Script im Docker Container,
+  label=StartScriptImDockerContainer
+]
+#!/usr/bin/env bash
+java -Dfile.encoding=UTF-8 -classpath \
+  "/usr/src/yass/lib/*:/usr/src/yass/build/classes/tutorial"\
+  ch.softappeal.yass.tutorial.server.web.JettyServer 2>&1
+\end{lstlisting}
+
+Den Output der Prozesse kann man mit dem Befehl docker logs anschauen.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{./images/logOutput.png}
+    \caption{Output am Stdout und Stderr sichbar machen vom Host Betriebsystem}
+    \label{img:logOutput}
+  \end{center}
+\end{figure}
+
+
+
+
 
