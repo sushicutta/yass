@@ -329,7 +329,17 @@ backgroundcolor=\color{blue!3},
 % Abbildungsverzeichnis beginns here
 % ===========================================================================
 
+\begingroup
+\let\clearpage\relax
 \listoffigures
+\endgroup
+
+\renewcommand{\lstlistlistingname}{Listingverzeichnis}
+
+\begingroup
+\let\clearpage\relax
+\lstlistoflistings
+\endgroup
 
 \cleardoublepage
 
