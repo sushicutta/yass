@@ -61,6 +61,8 @@ Erklärung der Zeilen:
 
 \section{Ship}
 
+\subsection{Via Docker Hub}
+
 Um das Image zu liefern, kann man nun Docker Hub verwenden.
 \\
 
@@ -71,6 +73,8 @@ Um das Image zu liefern, kann man nun Docker Hub verwenden.
 ]
 docker push sushicutta/docker-test
 \end{lstlisting}
+
+\subsection{Als .tar File}
 
 Oder man kann das Image als .tar Datei speichern.
 \\
@@ -93,6 +97,8 @@ Das gelieferte Image kann man dann irgendwo wieder importieren.
 ]
 docker load -i docker-test.tar
 \end{lstlisting}
+
+\subsection{Via SSH Tunnel}
 
 Oder gleich das Image per SSH transportieren zippen und unzippen on the fly, und mit pv den
 Pipe traffic darstellen:
@@ -126,9 +132,10 @@ docker run -d -p 9091:9090 --name yass-node-1 sushicutta/docker-test
 docker run -d -p 9092:9090 --name yass-node-2 sushicutta/docker-test
 \end{lstlisting}
 
-Das identische Image läuft jetzt zweimal, der Inhalt ist zu 100\% identisch. Der unterschied
-besteht darin, dass Docker nun die Ports 9091 des Host Betriebsystems auf den Port 9090 des
-ersten Containers mapped und das selbe für den Port 9092 des zweiten Containers.
+Das Image läuft jetzt zweimal, der Inhalt ist zu 100\% identisch. Der unterschied
+besteht darin, dass Docker nun den Ports 9091 des Host Betriebsystems auf den Port 9090 des
+ersten Containers mapped und analog den Port 9092 des Host Betriebsystems auf den Port 9090
+des zweiten Containers.
 
 \begin{figure}[htbp]
   \begin{center}
