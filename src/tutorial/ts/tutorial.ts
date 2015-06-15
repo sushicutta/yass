@@ -105,9 +105,35 @@ module tutorial {
         }
     }
 
+    /*
+    // Digital Ocean Server
     yass.connect(
-       // "ws://192.168.59.103:9090/tutorial",
         "ws://46.101.128.221:9090/tutorial",
+        contract.SERIALIZER,
+        yass.server( // you can add 0..n interceptors to a service
+            new yass.Service(contract.ClientServices.PriceListener, new PriceListenerImpl, serverLogger),
+            new yass.Service(contract.ClientServices.EchoService, new EchoServiceImpl, serverLogger)
+        ),
+            sessionClient => new Session(sessionClient),
+        () => log("connect failed")
+    );
+    */
+
+    // Yass node 1
+    yass.connect(
+        "ws://192.168.59.103:9091/tutorial",
+        contract.SERIALIZER,
+        yass.server( // you can add 0..n interceptors to a service
+            new yass.Service(contract.ClientServices.PriceListener, new PriceListenerImpl, serverLogger),
+            new yass.Service(contract.ClientServices.EchoService, new EchoServiceImpl, serverLogger)
+        ),
+        sessionClient => new Session(sessionClient),
+        () => log("connect failed")
+    );
+
+    // Yass node 2
+    yass.connect(
+        "ws://192.168.59.103:9092/tutorial",
         contract.SERIALIZER,
         yass.server( // you can add 0..n interceptors to a service
             new yass.Service(contract.ClientServices.PriceListener, new PriceListenerImpl, serverLogger),
