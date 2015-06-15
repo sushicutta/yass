@@ -1,0 +1,107 @@
+Docker hat den Grunsätzlichen Workflow von Build, Ship, Run. Wie ich das im Proof of Concept
+gemacht habe, werde ich hier veranschaulichen.
+
+\section{Build}
+
+Um ein Image zu bauen kann man ein Dockerfile erstellen. meines sieht so aus:
+
+\subsection{Dockerfile}
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=Dockerfile,
+  label=Dockerfile
+]
+  FROM java:8
+  MAINTAINER Roman Wuersch
+
+  COPY . /usr/src/yass
+  WORKDIR /usr/src/yass
+
+  EXPOSE 9090
+
+  CMD ["./start-in-docker.sh"]
+\end{lstlisting}
+
+Erklärung der Zeilen:
+
+1) Das Image leitet vom offiziellen OpenJDK 8 Image ab und baut darauf auf.
+
+4) Kopiert alle Dateien im aktuellen Pfad in das Image in den Pfad /urs/src/yass
+
+5) Setzt das Startverzeichnis
+
+7) Gibt an, dass der Port 9090 von einem Prozess verwendet wird und zukünftig angebunden werden kann
+
+9) Der Befehl, welcher ausgeführt wird, wenn ein Container aus dem Image gestartet wird.
+
+\subsection{Bauen via Shellscript}
+
+Um das Image zu bauen habe ich ein Shell-Script gemacht:
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=Dockerfile,
+  label=Dockerfile
+]
+#!/usr/bin/env bash
+docker rmi -f sushicutta/docker-test
+docker build -t sushicutta/docker-test .
+\end{lstlisting}
+
+Erklärung der Zeilen:
+
+2) Löscht das bestehende Image sushicutta/docker-test aus dem Docker Hafen
+3) erstellt das Image neu unter dem selben Namen.
+
+\section{Ship}
+
+Um das Image zu liefern, kann man nun Docker Hub verwenden.
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=Push to Docker Hub,
+  label=PushToDockerHub
+]
+docker push sushicutta/docker-test
+\end{lstlisting}
+
+Oder man kann das Image als .tar Datei speichern.
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=Docker Image exportieren,
+  label=DockerImageExportieren
+]
+docker save -o docker-test.tar sushicutta/docker-test
+\end{lstlisting}
+
+Das gelieferte Image kann man dann irgendwo wieder importieren.
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=Docker Image importieren,
+  label=DockerImageImportieren
+]
+docker load -i docker-test.tar
+\end{lstlisting}
+
+Oder gleich das Image per SSH transportieren zippen und unzippen on the fly, und mit pv den
+Pipe traffic darstellen:
+
+\begin{lstlisting}[
+  captionpos=b,
+  caption=SSH Transport mit zippen und network traffic Visualisierung,
+  label=SSHTransport
+]
+docker save <image> | bzip2 | pv | \
+     ssh user@host 'bunzip2 | docker load'
+\end{lstlisting}
+
+\section{Run}
+
+Das Image ist jetzt gebaut worden und im Docker Hafen angekommen, und es trägt den Namen
+sushicutta/docker-test.
+
+Dieses Image kann nun beliebig viele Male gestartet werden.
+
