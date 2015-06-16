@@ -1,11 +1,11 @@
 In einem Proof of Concept habe ich mir zum Ziel gesetzt Docker direkt auszuprobieren. Das heisst
-Hands-On. Den kompletten Proof of Concept habe ich mit einem meinem Mac Book Pro - Mid 2010 durchgeführt.
+Hands-On. Den kompletten Proof of Concept habe ich mit meinem Mac Book Pro - Mid 2010 durchgeführt.
 Dabei habe ich nur IntelliJ IDEA 14.1.3 und das Terminal von Mac OS verwendet.
 
 Als Proof of Concept habe ich mir ausgedacht, ich würde gerne zwei Jetty Websocket Server
 mit \textit{yass} als Service Framework erstellen. Als Applikation habe ich das Tutorial
 von \textit{yass} verwendet. Vor diese beiden Server soll ein Load Balancer mit
-Sticky Session plaziert werden und die jeweiligen WebSocket-HTTP-Request, als Reverse Proxy
+Sticky-Sessions plaziert werden und die jeweiligen WebSocket-HTTP-Request, als Reverse Proxy
 an einen der Jetty Websocket Server weiterleiten.
 
 Da ich dabei alles Open-Source-Software verwendet habe, habe ich den erstellten Code des Proof
@@ -13,5 +13,16 @@ of Concept auf Github publiziert:
 
 \url{https://github.com/sushicutta/yass/tree/testDocker}
 
+Das ganze habe ich hingekriegt und es läuft einwandfrei.
 
+\section{Fazit}
 
+Docker ist ein sehr cooles Ökosystem. In der kurzen Zeit, habe ich es geschaft zwei Docker Images
+zu erstellen, eines mit einem Java WebSocket Backend auf Basis von Jetty und yass, und eines
+mit einem WebServer, der statischen Content, sprich den Client in HTML und JavaScript, ausliefert
+und dann auch noch gleich das Load-Balancing mit Sticky-Sessions bietet.
+
+Docker ist ein sehr Entwickler freundliches Tool, da man alles von der Kommandozeile her steuern
+kann. Zudem ist die Dokumentation von Docker einwandfrei auf dessen Homepage verfügbar.
+
+Ich würde mich freuen, wenn wir in Zukunft auf die Stärken von Docker zurückgreifen könnten.
