@@ -2,12 +2,13 @@
 
 \begin{itemize}
 
-\item Docker Images sind Immutable, das geratiert, dass ein Docker Image nachdem es gebaut wurde
-nicht mehr verändert wird.
+\item Docker Images sind Immutable, das garantiert, dass ein Docker Image nachdem es gebaut wurde
+nicht mehr verändert wird. Das ist im Entwicklungsprozess von Vorteil, wenn man viele Engineering und
+Stageing Infrastrukturen hat und die Images von einer zur nächsten transportieren muss.
 
 \item Docker Images sind komplette Betriebsysteme. Alles was es braucht um die Applikation
-zu betreiben \(z.B. JRE - Java Runtime Environment\) kann in einem Image mitgeliefert werden
-und gehören somit ebenfalls zum Applikation.
+zu betreiben, z.B. JRE - Java Runtime Environment, kann in einem Image mitgeliefert werden
+und gehören somit ebenfalls zur Applikation.
 
 \item Docker kann über die Kommandozeile gesteuert werden.
 
@@ -23,6 +24,14 @@ Benutzer im Dockerfile angegeben werden.
 Gegenüber klassicher Virtualisierung bietet das eine starke Verbesserung.
 
 \item IntelliJ ab Version 14.1 bietet eine Docker Integration.
+
+\item Docker Images bauen auf anderen Docker Images auf, das passt perfekt in den DRY, don't repeat
+yourself, Ansatz. Es können standard Images für verschiedene Anwendungszwecke gebaut werden. So kann
+für den JBoss ein Image Inhouse erstellt und gehärtet werden, welches dann von den jeweiligen
+Applikationen weiterverwendet werden kann.
+
+\item Jegliche Applikationen werden neu zu Docker Images, daraus folgt, 1 Applikation ist somit auch nur genau
+1 Datei. Wir erinnern uns, man kann ein Docker Images als .tar Datei exportieren.
 
 \end{itemize}
 

@@ -3,9 +3,20 @@ gemacht habe, werde ich hier veranschaulichen.
 
 \section{Build}
 
-Um ein Image zu bauen kann man ein Dockerfile erstellen. meines sieht so aus:
+Um ein Image zu bauen kann man ein \textit{Dockerfile} erstellen. Das Dockerfile ist wie ein
+Script-File, welches die Beschreibung eines Betriebsystems ist. Darin kann angegeben werden
+von welchem Docker Image abgeleitet wird. Welche Dateien in dieses Image gepackt werden sollen.
+In welchem Benutzerkontext das Image augeführt. Welche Netzwerkports nach aussen hin exposed werden.
+Und vieles mehr.
+
+Als zweite Variante kann man ein bestehendes Image starten und live Änderungen am Image vornehmen.
+z.B. Konfigurationsdateien anpassen. Mit dem Befehl \textit{docker commit} können dann jegliche
+Änderungen in ein neues Image bespeichert werden. Das hat Ähnlichkeit zum bestehenden
+Software Entwicklungsprozess, wo man seine Änderungen auch ”committed“.
 
 \subsection{Dockerfile}
+
+Das Dockerfile welches ich für den Proof of Concept erstellt habe, sieht so aus:
 
 \begin{lstlisting}[
   captionpos=b,
@@ -61,7 +72,7 @@ Angaben das Image.
 
 \item[Zeile 2] Löscht das bestehende Image sushicutta/docker-test aus dem Docker Hafen
 
-\item[Zeile 3] Erstellt das Image neu unter dem selben Namen.
+\item[Zeile 3] Erstellt das Image neu anhand der Datei \textit{Dockerfile} unter dem selben Namen.
 
 \end{description}
 
@@ -131,7 +142,7 @@ Um das Image zweimal zu starten, benötigt man folgende Commands:
 
 \begin{lstlisting}[
   captionpos=b,
-  caption=Image zwei mal starten auf den Ports 9091 und 9092,
+  caption=Image zweimal starten auf den Ports 9091 und 9092,
   label=ImageZweimalStarten
 ]
 docker run -d -p 9091:9090 --name yass-node-1 sushicutta/docker-test
