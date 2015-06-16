@@ -23,17 +23,21 @@ Um ein Image zu bauen kann man ein Dockerfile erstellen. meines sieht so aus:
   CMD ["./start-in-docker.sh"]
 \end{lstlisting}
 
-Erklärung der Zeilen:
+\begin{description}
 
-1) Das Image leitet vom offiziellen OpenJDK 8 Image ab und baut darauf auf.
+\item[Zeile 1] Das Image leitet vom offiziellen OpenJDK 8 Image ab und baut darauf auf.
 
-4) Kopiert alle Dateien im aktuellen Pfad in das Image in den Pfad /urs/src/yass
+\item[Zeile 4] Kopiert alle Dateien im aktuellen Pfad ”.“ in das Image in den Pfad ”/urs/src/yass“. Das
+sehe ich als eine der grössten Stärken an. Man kann sein Setup Lokal auf seiner Maschine so aufsetzten und testen
+bis es alles sauber funktioniert und dann mit dieser Zeile genau den Inhalt in das Image replizieren.
 
-5) Setzt das Startverzeichnis
+\item[Zeile 5] Setzt das Startverzeichnis
 
-7) Gibt an, dass der Port 9090 von einem Prozess verwendet wird und zukünftig angebunden werden kann
+\item[Zeile 7] Gibt an, dass der Port 9090 von einem Prozess verwendet wird und zukünftig angebunden werden kann
 
-9) Der Befehl, welcher ausgeführt wird, wenn ein Container aus dem Image gestartet wird.
+\item[Zeile 9] Der Befehl, welcher ausgeführt wird, wenn ein Container aus dem Image gestartet wird.
+
+\end{description}
 
 \subsection{Bauen via Shellscript}
 
@@ -53,11 +57,13 @@ docker build -t sushicutta/docker-test .
 Dieses Shell-Script sucht im aktuellen Verzeichnis ein Dockerfile und baut mit dessen
 Angaben das Image.
 
-Erklärung der Zeilen:
+\begin{description}
 
-2) Löscht das bestehende Image sushicutta/docker-test aus dem Docker Hafen
+\item[Zeile 2] Löscht das bestehende Image sushicutta/docker-test aus dem Docker Hafen
 
-3) erstellt das Image neu unter dem selben Namen.
+\item[Zeile 3] Erstellt das Image neu unter dem selben Namen.
+
+\end{description}
 
 \section{Ship}
 
