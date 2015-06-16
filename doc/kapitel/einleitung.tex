@@ -10,7 +10,7 @@ Docker Hub zu nutzen.
 \section{Was ist Docker}
 
 “\textit{Docker} ist eine Open-Source-Software, die beim Linux-Betriebssystem dazu verwendet werden
-kann, Anwendungen mithilfe von Betriebssystemvirtualisierung in Containern zu isolieren.
+kann, Anwendungen mithilfe von Betriebssystem Virtuallisierung in Containern zu isolieren.
 Dies vereinfacht einerseits die Bereitstellung von Anwendungen, weil sich Container, die
 alle nötigen Pakete enthalten, leicht als Dateien transportieren und installieren lassen.
 Andererseits gewährleisten Container die Trennung der auf einem Rechner genutzten Ressourcen,
@@ -23,15 +23,15 @@ Docker basiert auf einer ähnlichen Technologie wie Linux Containers (LXC).
 Ein Docker Image ist mehr oder weniger ein Betriebsystem Image. Mit Docker kann man Docker Images
 als .iso Dateien exportieren und importieren. Speziell bei Docker Images ist, dass sich ein diese
 in Layers aufteilen, somit kann ich ein bestehendes Docker Image nehmen und mein eigenes darauf
-aufbauen. Das ist meines erachtens die grösste Stärke bei Docker, da man z.B. sein RHEL 7 Linux
-perkeft aufsetzen und härten kann und das als Docker Image speichert. Danach kann man alle
+aufbauen. Das ist meines Erachtens die grösste Stärke bei Docker, da man z.B. sein RHEL 7 Linux
+perfekt aufsetzen und härten kann und das als Docker Image speichert. Danach kann man alle
 weiteren Applikationen darauf aufbauen. Der Aufbau solcher Images kann man mittels einer
 Scriptspache in Dockerfiles beschreiben und somit automatisieren.
 
 \subsection{Was ist ein Docker Container}
 
 Ein Docker Container ist eine Instanz eines Docker Images. Der Docker Container läuft
-auf dem Hostbetriebsystem, in dem auch die Docker Software läuft. Aus einem Docker Image
+auf dem Host Betriebsystem, in dem auch die Docker Software läuft. Aus einem Docker Image
 können beliebig viele Docker Container gestartet werden.
 
 Die Dockersoftware kann beim starten eines Containers Umgebungsvariablen und Netzerkports
@@ -56,7 +56,7 @@ zu verwalten.
 \section{Linux Container vs. Virtual Machines}
 
 Jede virtuelle Maschine hat nicht nur seine Applikations Binaries die ca. 100 MB gross ist, sondern
-auch die Binaries des gesammten Betriebsystems, das ca. 10 GB gross ist. Zudem läuft das Betriebsystem
+auch die Binaries des gesamten Betriebsystems, das ca. 10 GB gross ist. Zudem läuft das Betriebsystem
 komplett in seiner eigenen Instanz.
 
 \begin{figure}[htbp]
@@ -68,14 +68,14 @@ komplett in seiner eigenen Instanz.
 \end{figure}
 
 Ein Linux Container läuft in einem eigenen Prozess im Host Betriebsystem. Der Linux Kernel isoliert
-den Prozess von allen anderen Prozessen und mittels Namespaces. Das gibt die vorteile einer
-virtualisierung, ist aber viel leichtgewichtiger und Ressourcen schonender, da der Betriebsystem
+den Prozess von allen anderen Prozessen und mittels Namespaces. Das gibt die Vorteile einer
+Virtuallisierung, ist aber viel leichtgewichtiger und Ressourcen schonender, da der Betriebsystem
 overhead nur einmal anfällt.
 
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.45\textwidth]{./images/docker_container.png}
-    \caption{Linux Container Virtualisierung}
+    \caption{Linux Container Virtuallisierung}
     \label{img:docker_container}
   \end{center}
 \end{figure}

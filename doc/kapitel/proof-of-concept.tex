@@ -5,7 +5,7 @@ Dabei habe ich nur IntelliJ IDEA 14.1.3 und das Terminal von Mac OS verwendet.
 Als Proof of Concept habe ich mir ausgedacht, ich würde gerne zwei Jetty Websocket Server
 mit \textit{yass} als Service Framework erstellen. Als Applikation habe ich das Tutorial
 von \textit{yass} verwendet. Vor diese beiden Server soll ein Load Balancer mit
-Sticky-Sessions plaziert werden und die jeweiligen WebSocket-HTTP-Request, als Reverse Proxy
+Sticky-Sessions platziert werden und die jeweiligen WebSocket-HTTP-Request, als Reverse Proxy
 an einen der Jetty Websocket Server weiterleiten.
 
 Da ich dabei alles Open-Source-Software verwendet habe, habe ich den erstellten Code des Proof
@@ -18,7 +18,7 @@ Das ganze habe ich hingekriegt und es läuft einwandfrei.
 
 \section{Fazit}
 
-Docker ist ein sehr cooles Ökosystem. In der kurzen Zeit, habe ich es geschaft zwei Docker Images
+Docker ist ein sehr cooles Ökosystem. In der kurzen Zeit, habe ich es geschafft zwei Docker Images
 zu erstellen, eines mit einem Java WebSocket Backend auf Basis von Jetty und yass, und eines
 mit einem WebServer, der statischen Content, sprich den Client in HTML und JavaScript, ausliefert
 und dann auch noch gleich das Load-Balancing mit Sticky-Sessions bietet.
