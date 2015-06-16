@@ -266,7 +266,7 @@ backgroundcolor=\color{blue!3},
 \fi
   
 % ===========================================================================
-% Titelblatt beginns here
+% Titelblatt
 % ===========================================================================
 
 \begin{sffamily}
@@ -275,22 +275,30 @@ backgroundcolor=\color{blue!3},
   
 \cleardoublepage
 
+% ===========================================================================
+% Abstract
+% ===========================================================================
+
 \input{./kapitel/abstract.tex}
   
 \cleardoublepage
 
+% ===========================================================================
+% Abstract
+% ===========================================================================
+
 \pagenumbering{roman}
-  
+
 \tableofcontents
   
 \cleardoublepage
-    
-\pagenumbering{arabic}
 
 % ===========================================================================
-% Kapitel Einführung beginns here
+% Kapitel Vorwort
 % ===========================================================================
-  
+
+\pagenumbering{arabic}
+
 \chapter{Vorwort}\label{chapter:Vorwort}
   
 \input{./kapitel/vorwort.tex}
@@ -298,7 +306,7 @@ backgroundcolor=\color{blue!3},
 \cleardoublepage
 
 % ===========================================================================
-% Kapitel Einführung beginns here
+% Kapitel Einleitung
 % ===========================================================================
 
 \chapter{Einleitung}\label{chapter:Einleitung}
@@ -308,7 +316,7 @@ backgroundcolor=\color{blue!3},
 \cleardoublepage
 
 % ===========================================================================
-% Kapitel Einführung beginns here
+% Kapitel Docker im Windows einsetzten
 % ===========================================================================
 
 \chapter{Docker im Windows einsetzten}\label{chapter:Docker im Windows einsetzten}
@@ -318,12 +326,22 @@ backgroundcolor=\color{blue!3},
 \cleardoublepage
 
 % ===========================================================================
-% Kapitel Paradigmatischer Fall beginns here
+% Kapitel Docker Workflow
 % ===========================================================================
   
 \chapter{Docker Workflow}\label{chapter:DockerWorkflow}
   
 \input{./kapitel/dockerworkflow.tex}
+
+\cleardoublepage
+
+% ===========================================================================
+% Kapitel Paradigmatischer Fall beginns here
+% ===========================================================================
+
+\chapter{Pros und Cons}\label{chapter:ProsUndCons}
+
+\input{./kapitel/pros-cons.tex}
 
 \cleardoublepage
 

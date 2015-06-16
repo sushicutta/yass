@@ -1,0 +1,44 @@
+\section{Pros}
+
+\begin{enumerate}
+
+\item Docker kann über die Kommandozeile gesteuert werden.
+
+\item Docker fügt sich reibungslos in eine Entwicklungsarchitektur ein, bei welcher Build
+Automatisierungstools eingesetzt werden. Durch die Steuerung per Kommandozeile kann alles
+mittels Shell-Scripts automatiert werden. Solche Shell-Scripts können dann z.B. via Jenkins
+im Buildprozess verwendet werden.
+
+\item Docker Container lassen sich als \textit{root} ausführen, es kann aber auch ein spezieller
+Benutzer im Dockerfile angegeben werden.
+
+\item Der Start eines Docker Containers ist sehr schnell, meistens im Bereich < 1 Sekunde.
+Gegenüber klassicher Virtualisierung bietet das eine starke Verbesserung.
+
+\item IntelliJ ab Version 14.1 bietet eine Docker Integration.
+
+\end{enumerate}
+
+\section{Cons}
+
+\begin{enumerate}
+
+\item Yet another Dev Tool.
+
+\item Docker kommt mit einer sehr steilen Lernkurve daher. Auch für mich war es eine Herausforderung
+in dieser kurzen Zeit alles was das Doker Ökosystem bietet richtig einzuordnen.
+
+\item Für die Ausführung eines Docker Images braucht es zwingend immer einen Docker Deamon Prozess der
+in einem Linux Host Betriebsystem läuft, Das macht es für den Betrieb schwierig Docker in der
+Produktion einzusetzten.
+
+Zumindest kommt da die Frage auf, wie sicher ”bullet proof“ is der Docker Deamon Prozess? und wie
+geht man mit Security Updates um, welche für Docker erscheinen, oder auch für die Container, welche
+im Rahmen eines Docker Deamon Prozesses laufen.
+
+\item Docker existiert erst seit kurzer Zeit und es gibt noch nicht viele Entwickler und
+Administratoren, welche sich professionell mit diesem Thema auseinander gesetzt haben. Somit wird
+es schwer werden Leute für die Sache zu gewinnen. Vielerorts existiert eine Akzeptanzhürde bei
+neuen Technologien, welche bestehendes auf den Kopf stellen könnten.
+
+\end{enumerate}
