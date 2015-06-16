@@ -333,13 +333,14 @@ backgroundcolor=\color{blue!3},
   
 \input{./kapitel/dockerworkflow.tex}
 
-\cleardoublepage
-
 % ===========================================================================
 % Kapitel Proof of Concept
 % ===========================================================================
 
+\begingroup
+\let\clearpage\relax
 \chapter{Proof of Concept}\label{chapter:ProofOfConcept}
+\endgroup
 
 \input{./kapitel/proof-of-concept.tex}
 
@@ -388,16 +389,6 @@ backgroundcolor=\color{blue!3},
 \let\clearpage\relax
 \lstlistoflistings
 \endgroup
-
-\cleardoublepage
-
-% ===========================================================================
-% Literaturverzeichnis beginns here
-% ===========================================================================
-  
-\chapter{Literaturverzeichnis}\label{chapter:Literaturverzeichnis}
-
-\input{./kapitel/literaturverzeichnis.tex}
 
 \cleardoublepage
 
